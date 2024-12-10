@@ -1,3 +1,8 @@
+import React from 'react';
+import '@mantine/core/styles.css';
+import { MantineProvider} from '@mantine/core';
+
+
 const projects = [
     { title: 'Projekt 1', description: 'Beschreibung des Projekts 1' },
     { title: 'Projekt 2', description: 'Beschreibung des Projekts 2' },

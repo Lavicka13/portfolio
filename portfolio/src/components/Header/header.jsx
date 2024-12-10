@@ -19,7 +19,7 @@ const links = [
  
   { link: './cv.jsx', label: 'CV',
     links: [
-      { link: './cv.jsx', label: 'Download CV' },]
+      { link: '/assets/CV.pdf', label: 'Download CV', download: true },]
    },
   
 ];
