@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React from 'react';
+
+
+
+import '@mantine/core/styles.css';
+import { MantineProvider} from '@mantine/core';
+
+import HeaderMenu from './components/header.jsx';
+import About from './components/About.jsx'
+import Skills from './components/Skills.jsx';
+import Projects from './components/Projects.jsx';
+import CV from './components/cv.jsx';
+import FooterMenu from './components/footer.jsx';
+
 
 function App() {
+  // Beispiel-Projekte
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <HeaderMenu />
+      <About />
+      <Skills />
+      <Projects />
+      <CV />
+      <FooterMenu />
+      
+    </MantineProvider>
   );
 }
 
