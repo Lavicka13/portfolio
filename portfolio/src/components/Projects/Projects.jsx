@@ -29,7 +29,9 @@
   
   function Projects() {
     return (
+      <section id="projects" class="section light-background">
       <Container>
+      <div style={{ height: '1px', marginTop: '-20px' }} aria-hidden="true"></div>
         <Title className="title">My Projects</Title>
         <Grid gutter="xl">
           {projects.map((project, index) => (
@@ -52,6 +54,7 @@
           ))}
         </Grid>
       </Container>
+      </section>
     );
   }
   

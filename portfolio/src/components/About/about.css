@@ -1,0 +1,47 @@
+/* Grundlegende Gestaltung für den About-Container */
+#about {
+    position: relative;
+    height: 110vh;
+    background-image: url('bg.jpg'); /* Dein Hintergrundbild */
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+    padding-top: 56px;
+    margin-top:-290px;
+  }
+    
+  
+  .container {
+    position: relative; /* Stellt sicher, dass der Inhalt über dem Hintergrund angezeigt wird */
+    padding: 50px 0; /* Optional: Padding hinzufügen, um den Abstand zu steuern */
+  }
+  
+  
+  .titleAbout {
+    color: white; /* Weißer Text für bessere Lesbarkeit */
+    text-align: center;
+    margin-top:80px;
+    
+  }
+  
+  
+  .textAbout {
+    color: white; /* Weißer Text für bessere Lesbarkeit */
+    text-align: center;
+    margin-top: 100px;
+    font-size: xx-large;
+    
+  }
+  
+  .profilImg {
+    width: 300px;
+    margin-left: 890px;
+    margin-top: 0;
+
+  }
+
+  .socialIcons{
+    color:white;
+    
+  }
+  

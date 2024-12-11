@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Title, Tooltip, Image, Container } from '@mantine/core';
 import './skills.css';
 
+
 const skills = [
   { title: 'C#', picture: '/assets/icons/c.svg' },
   { title: 'React', picture: '/assets/icons/react.svg' },
@@ -19,8 +20,9 @@ const skills = [
 
 function Skills() {
   return (
-    
+    <section id="skills">
     <Container>
+    <div style={{ height: '20px', marginTop: '-50px' }} aria-hidden="true"></div>
       <Title className = 'title'>Skills</Title>
       <Grid gutter="xl">
         {skills.map((skill, index) => {
@@ -45,6 +47,7 @@ function Skills() {
         })}
       </Grid>
     </Container>
+    </section>
   );
 }
 

@@ -1,22 +1,28 @@
+
 .header {
-  height: 56px;
-  margin-bottom: 50px;
-  background: rgba(255, 255, 255, 0.11);
-  border-radius: 16px;
+  position: sticky; /* Macht den Header sticky */
+  top: 0; /* Der Header bleibt oben am Bildschirm */
+  z-index: 10;
+  margin: 0 auto  auto; /* Zentriert horizontal und behält den unteren Abstand */
+  background: transparent !important;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.8px);
-  -webkit-backdrop-filter: blur(7.8px);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   display: flex; 
   justify-content: flex-end;
   align-items: center; 
+  width: 100%; /* Stellt die Breite des Headers ein */
 }
+
 
 .inner {
   display: flex;
   justify-content: flex-end; 
   align-items: center; 
-  
+  text-decoration: none;
 }
 
 .link {
@@ -26,7 +32,47 @@
   margin-right: 5px;
   border-radius: var(--mantine-radius-sm);
   text-decoration: none;
-  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
-  font-size: var(--mantine-font-size-sm);
+  color: white;
+  font-size: var(--mantine-font-size-xl);
   font-weight: 500;
+}
+
+/* Dropdown-Menu-Container */
+.dropdownMenu {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Einzelne Links im Dropdown */
+.menuItem {
+  display: block;
+  color: #333; /* Textfarbe */
+  padding: 8px 12px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menuItem:hover {
+ 
+  color: rgb(28, 31, 216); /* Hover-Textfarbe */
+}
+
+/* Optional: Styling für externe Links */
+.externalLink {
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.header {
+  transition: color 0.3s ease; /* Weicher Übergang der Schriftfarbe */
+}
+
+.darkHeader {
+  color: white;
+}
+
+.lightHeader {
+  color: black;
 }

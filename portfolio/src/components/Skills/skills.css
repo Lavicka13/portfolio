@@ -9,7 +9,6 @@
   
   .icon-wrapper:hover {
     transform: scale(1.4); /* Vergrößert das Icon leicht */
-    
   }
   
   .icon {
@@ -26,4 +25,4 @@
     text-align: center;          /* Stellt sicher, dass der Text auch horizontal innerhalb des Containers zentriert ist */
     margin-bottom: 40px;
   }
-  
+ 
