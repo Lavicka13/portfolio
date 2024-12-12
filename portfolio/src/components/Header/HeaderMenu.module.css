@@ -1,7 +1,7 @@
 
 .header {
-  position: sticky; /* Macht den Header sticky */
-  top: 0; /* Der Header bleibt oben am Bildschirm */
+  position: sticky; 
+  top: 0; 
   z-index: 10;
   margin: 0 auto  auto; /* Zentriert horizontal und behält den unteren Abstand */
   background: transparent !important;
@@ -14,7 +14,7 @@
   display: flex; 
   justify-content: flex-end;
   align-items: center; 
-  width: 100%; /* Stellt die Breite des Headers ein */
+  width: 80%; /* Stellt die Breite des Headers ein */
 }
 
 
@@ -25,6 +25,7 @@
   text-decoration: none;
 }
 
+/* Standard-Link-Styling */
 .link {
   display: block;
   line-height: 1;
@@ -32,21 +33,49 @@
   margin-right: 5px;
   border-radius: var(--mantine-radius-sm);
   text-decoration: none;
-  color: white;
   font-size: var(--mantine-font-size-xl);
   font-weight: 500;
+  transition: color 0.9s ease; /* Weicher Übergang der Schriftfarbe */
 }
 
-/* Dropdown-Menu-Container */
-.dropdownMenu {
-  border-radius: 5px;
-  padding: 10px;
+
+.lightHeader .link {
+  color: black; 
 }
+
+
+.darkHeader .link {
+  color: white; 
+}
+.lightDropdown .menuItem{
+  color: black;
+}
+
+.darkDropdown .menuItem{
+  color: white;
+}
+
+.dropdownMenu {
+  background: rgba(255, 255, 255, 0.1); /* Halbtransparenter Hintergrund */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sanfter Schatten */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Transparente Umrandung */
+  transition: all 0.3s ease; /* Weicher Übergang */
+}
+
+.dropdownMenu:hover {
+  background: rgba(255, 255, 255, 0.1); /* Leicht heller bei Hover */
+  backdrop-filter: blur(12px); /* Stärkere Unschärfe */
+  -webkit-backdrop-filter: blur(12px);
+}
+
 
 /* Einzelne Links im Dropdown */
 .menuItem {
   display: block;
-  color: #333; /* Textfarbe */
   padding: 8px 12px;
   text-decoration: none;
   font-size: 18px;
@@ -58,7 +87,6 @@
   color: rgb(28, 31, 216); /* Hover-Textfarbe */
 }
 
-/* Optional: Styling für externe Links */
 .externalLink {
   color: #007bff;
   font-weight: bold;
@@ -67,12 +95,4 @@
 
 .header {
   transition: color 0.3s ease; /* Weicher Übergang der Schriftfarbe */
-}
-
-.darkHeader {
-  color: white;
-}
-
-.lightHeader {
-  color: black;
 }

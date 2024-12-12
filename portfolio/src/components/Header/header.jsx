@@ -1,7 +1,7 @@
 import { IconChevronDown } from '@tabler/icons-react';
 import { Burger, Center, Container, Group, Menu } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import classes from './HeaderMenu.module.css';
 
 const links = [
@@ -25,33 +25,21 @@ const links = [
 
 export function HeaderMenu() {
   const [opened, { toggle }] = useDisclosure(false);
-  const headerRef = useRef(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const header = headerRef.current; // Header-Element
-    const sections = document.querySelectorAll('.section'); // Abschnitte mit der Klasse "section"
+    const handleScroll = () => {
+      const skillsSection = document.getElementById('skills');
+      if (!skillsSection) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (entry.target.classList.contains('light-background')) {
-              header.classList.add(classes.lightHeader); // Füge Klasse für dunkle Schrift hinzu
-              header.classList.remove(classes.darkHeader); // Entferne Klasse für helle Schrift
-            } else {
-              header.classList.add(classes.darkHeader); // Füge Klasse für helle Schrift hinzu
-              header.classList.remove(classes.lightHeader); // Entferne Klasse für dunkle Schrift
-            }
-          }
-        });
-      },
-      { threshold: 0.95 } // 50% des Abschnitts müssen sichtbar sein
-    );
+      const skillsTop = skillsSection.getBoundingClientRect().top;
+      setIsScrolled(skillsTop <= 0); // Ändert Zustand basierend auf Scroll-Position
+    };
 
-    // Beobachte jeden Abschnitt
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect(); // Bereinigen
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const items = links.map((link) => {
@@ -61,7 +49,7 @@ export function HeaderMenu() {
           key={link.label}
           href={link.link}
           download
-          className={classes.link}
+          className={`${classes.link} ${isScrolled ? classes.lightLink : classes.darkLink}`}
         >
           {link.label}
         </a>
@@ -74,7 +62,7 @@ export function HeaderMenu() {
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
-          className={classes.menuItem}
+          className={`${classes.menuItem} ${isScrolled ? classes.lightLink : classes.darkLink}`}
         >
           {item.label}
         </a>
@@ -83,29 +71,45 @@ export function HeaderMenu() {
 
     if (menuItems) {
       return (
-        <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
+        <Menu
+          key={link.label}
+          trigger="hover"
+          transitionProps={{ exitDuration: 0 }}
+          withinPortal
+        >
           <Menu.Target>
-            <a href={link.link} className={classes.link}>
+            <a
+              href={link.link}
+              className={`${classes.link} ${isScrolled ? classes.lightLink : classes.darkLink}`}
+            >
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
                 <IconChevronDown size={14} stroke={1.5} />
               </Center>
             </a>
           </Menu.Target>
-          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
+          <Menu.Dropdown className={`${classes.dropdownMenu} ${isScrolled ? classes.lightDropdown : classes.darkDropdown}`}>
+            {menuItems}
+          </Menu.Dropdown>
         </Menu>
       );
     }
 
     return (
-      <a key={link.label} href={link.link} className={classes.link}>
+      <a
+        key={link.label}
+        href={link.link}
+        className={`${classes.link} ${isScrolled ? classes.lightLink : classes.darkLink}`}
+      >
         {link.label}
       </a>
     );
   });
 
   return (
-    <header ref={headerRef} className={`${classes.header} ${classes.darkHeader}`}>
+    <header
+      className={`${classes.header} ${isScrolled ? classes.lightHeader : classes.darkHeader}`}
+    >
       <Container size="md">
         <div className={classes.inner}>
           <Group gap={4} visibleFrom="md">

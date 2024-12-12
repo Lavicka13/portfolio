@@ -1,7 +1,7 @@
 
 import '@mantine/core/styles.css';
 import { MantineProvider} from '@mantine/core';
-
+import style from './App.css'
 import HeaderMenu from './components/Header/header.jsx';
 import About from './components/About/About.jsx'
 import Skills from './components/Skills/Skills.jsx';
@@ -17,8 +17,8 @@ function App() {
       <HeaderMenu />
       <SocialBar />
       <About />
-      <Skills className="light-background"/>
-      <Projects className= "light-background"/>
+      <Skills />
+      <Projects />
       
       
     </MantineProvider>
