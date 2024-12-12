@@ -27,10 +27,18 @@
   
   .textAbout {
     color: white; 
-    text-align: center;
-    margin-top: 100px;
+    text-align: right;
+    margin-top: 90px;
     font-size: xx-large;
+    margin-right: -80px;
     
+  }
+
+  .textIntro{
+    color: white; 
+    font-size: 70px;
+    margin-top: -80px;
+    margin-left: -100px;
   }
   
   .profilImg {

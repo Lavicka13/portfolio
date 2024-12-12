@@ -27,7 +27,7 @@ function Skills() {
           {skills.map((skill, index) => {
             return (
               <Grid.Col key={index} span={4}>
-                <Tooltip label={skill.title} position="top" withArrow>
+                <Tooltip label={skill.title} position="top" withArrow >
                   <a href={skill.url} target="_blank" rel="noopener noreferrer" className="icon-link">
                     <div className="icon-wrapper">
                       <Image

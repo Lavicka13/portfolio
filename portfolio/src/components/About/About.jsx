@@ -11,7 +11,8 @@ function About() {
       <Container>
         <Title className="titleAbout">About Me</Title>
         <Image className="profilImg" src={myImage} alt="My Image" />
-        <Text className="textAbout">I am retraining as a Fullstack Developer, blending creativity with technical skills. I'm focused on self-improvement and applying my knowledge in practical settings.</Text>
+        <Text className = "textIntro">Hey, I am <strong>Lukas Lavicka</strong> </Text>
+        <Text className="textAbout">and I am retraining as a Fullstack Developer, blending creativity with technical skills. I'm focused on self-improvement and applying my knowledge in practical settings.</Text>
       </Container>
     </section>
   );

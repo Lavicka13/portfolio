@@ -1,23 +1,40 @@
 .social-bar {
-    position: sticky;
-    top: 40%; /* Abstand vom oberen Rand */
-    left: 0; /* Links an der Seite ausgerichtet */
-    height: auto; /* Dehnt sich über die gesamte Höhe des Viewports */
-    width:3%;
-    display: flex;
-    align-items: center; /* Zentriert die Icons vertikal */
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7); /* Halbtransparenter Hintergrund */
-    border-radius: 0 8px 8px 0; /* Abgerundete Kante auf der rechten Seite */
-    z-index: 1000;
-  }
-  
-  .social-bar a {
-    margin: 10px 0;
-    transition: transform 0.2s ease;
-  }
-  
-  .social-bar a:hover {
-    transform: scale(1.2); /* Vergrößert das Icon beim Hover */
-  }
-  
+  position: sticky;
+  top: 40%; /* Abstand vom oberen Rand */
+  left: 0; /* Links an der Seite ausgerichtet */
+  height: auto; /* Dehnt sich über die gesamte Höhe des Viewports */
+  width: 3%;
+  display: flex;
+  flex-direction: column; /* Icons vertikal anordnen */
+  align-items: center; /* Zentriert die Icons vertikal */
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7); /* Halbtransparenter Hintergrund */
+  border-radius: 0 8px 8px 0; /* Abgerundete Kante auf der rechten Seite */
+  z-index: 1000;
+  transition: width 0.3s ease; /* Übergangseffekt für die Breite */
+}
+
+.social-bar:hover {
+  width: 15%; /* Breite beim Hover */
+}
+
+.social-bar a {
+  margin: 10px 0;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.social-bar a:hover {
+  transform: scale(1.2); /* Vergrößert das Icon beim Hover */
+}
+
+.contact-info {
+  display: none; /* Versteckt die Kontaktinformationen standardmäßig */
+  margin-left: 10px;
+  white-space: nowrap; /* Verhindert, dass der Text unter das Icon rutscht */
+}
+
+.social-bar:hover .contact-info {
+  display: block; /* Zeigt die Kontaktinformationen beim Hover */
+}

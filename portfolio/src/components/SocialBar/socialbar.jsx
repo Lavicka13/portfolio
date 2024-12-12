@@ -1,5 +1,5 @@
 import React from 'react';
-import { Group } from '@mantine/core';
+import { Group, Text } from '@mantine/core';
 import { IconBrandGithub, IconMail, IconDeviceMobile } from '@tabler/icons-react';
 
 import './socialbar.css'; // Für die Stildefinition
@@ -9,20 +9,29 @@ function SocialBar() {
     <div className="social-bar">
       <Group direction="column" spacing="sm" position="center">
         {/* GitHub Link */}
+        <Group>
         <a href="https://github.com/Lavicka13" target="_blank" rel="noopener noreferrer">
           <IconBrandGithub size={32} color="white" />
-        </a>
-        
-        {/* E-Mail Link */}
+        </a> <Text c="white" className="contact-info">Lavicka13</Text>
+        </Group>
+
+         {/* E-Mail Link */}
+        <Group>
         <a href="mailto:lukaslavick@gmail.com" target="_blank" rel="noopener noreferrer">
           <IconMail size={32} color="white" />
         </a>
-        
+        <Text c="white" className="contact-info">lukaslavick@gmail.com</Text>
+        </Group>
+
         {/* Telefon Link */}
+        <Group>
         <a href="tel:+4915256801795" target="_blank" rel="noopener noreferrer">
           <IconDeviceMobile size={32} color="white"/>
-        </a>
+        </a> 
+        <Text c="white" className="contact-info">+49 152 56801795</Text>
+        </Group>
       </Group>
+      
     </div>
   );
 }
