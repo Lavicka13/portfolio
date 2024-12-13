@@ -1,9 +1,8 @@
-
 .header {
   position: sticky; 
   top: 0; 
   z-index: 10;
-  margin: 0 auto  auto; /* Zentriert horizontal und behält den unteren Abstand */
+  margin: 0 auto auto; /* Zentriert horizontal und behält den unteren Abstand */
   background: transparent !important;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
@@ -17,7 +16,6 @@
   width: 80%; /* Stellt die Breite des Headers ein */
 }
 
-
 .inner {
   display: flex;
   justify-content: flex-end; 
@@ -25,12 +23,13 @@
   text-decoration: none;
 }
 
-/* Standard-Link-Styling */
-.link {
+/* Standard-Link-Styling nur innerhalb des Headers */
+.header .link {
   display: block;
   line-height: 1;
   padding: 17px;
   margin-right: 5px;
+  margin-bottom: 5px;
   border-radius: var(--mantine-radius-sm);
   text-decoration: none;
   font-size: var(--mantine-font-size-xl);
@@ -38,20 +37,47 @@
   transition: color 0.9s ease; /* Weicher Übergang der Schriftfarbe */
 }
 
-
 .lightHeader .link {
   color: black; 
 }
 
-
 .darkHeader .link {
   color: white; 
 }
-.lightDropdown .menuItem{
+
+/* Links im Header mit Asterisk für hover */
+.header a {
+  display: inline-block;
+  position: relative;
+  color: #0087ca;
+  text-decoration: none;
+}
+
+.header a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  border-radius: 5px;
+  height: 0.05em;
+  bottom: 0;
+  left: 0;
+  background: currentcolor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.header a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Dropdown Menü für hellen und dunklen Modus */
+.lightDropdown .menuItem {
   color: black;
 }
 
-.darkDropdown .menuItem{
+.darkDropdown .menuItem {
   color: white;
 }
 
@@ -72,7 +98,6 @@
   -webkit-backdrop-filter: blur(12px);
 }
 
-
 /* Einzelne Links im Dropdown */
 .menuItem {
   display: block;
@@ -83,16 +108,10 @@
 }
 
 .menuItem:hover {
- 
   color: rgb(28, 31, 216); /* Hover-Textfarbe */
 }
 
-.externalLink {
-  color: #007bff;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
+/* Header Transition */
 .header {
   transition: color 0.3s ease; /* Weicher Übergang der Schriftfarbe */
 }

@@ -18,7 +18,7 @@ const links = [
   },
   {
     link: '/assets/CV.pdf',
-    label: 'Download CV',
+    label: 'Download Resume',
     download: true, // CV-Link hat ein Download-Flag
   },
 ];

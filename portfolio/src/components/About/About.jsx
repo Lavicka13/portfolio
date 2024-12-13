@@ -9,7 +9,7 @@ function About() {
     <section id="about" className="about-section">
       <div className="overlay"></div>  {/* Overlay als separates Div */}
       <Container>
-        <Title className="titleAbout">About Me</Title>
+        <div style={{ height: '125px' }}></div>
         <Image className="profilImg" src={myImage} alt="My Image" />
         <Text className = "textIntro">Hey, I am <strong>Lukas Lavicka</strong> </Text>
         <Text className="textAbout">and I am retraining as a Fullstack Developer, blending creativity with technical skills. I'm focused on self-improvement and applying my knowledge in practical settings.</Text>

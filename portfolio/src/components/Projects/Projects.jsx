@@ -55,7 +55,6 @@ function Projects() {
           ))}
         </Grid>
       </Container>
-      <div style={{ height: '150px' }}></div>
     </section>
   );
 }

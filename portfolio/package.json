@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@mantine/core": "^7.14.3",
+    "@mantine/form": "^7.15.1",
     "@mantine/hooks": "^7.14.3",
     "@tabler/icons-react": "^3.24.0",
     "cra-template": "1.2.0",
@@ -35,6 +36,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2"
   }
 }
