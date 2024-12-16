@@ -114,6 +114,7 @@ function GetInTouchSimple() {
           autosize
           name="message"
           variant="filled"
+          required
           {...form.getInputProps('message')}
         />
 
