@@ -21,6 +21,7 @@ const links = [
     label: 'Download Resume',
     download: true, // CV-Link hat ein Download-Flag
   },
+  { link: "#contact", label: 'Contact Me'}
 ];
 
 export function HeaderMenu() {
@@ -41,6 +42,21 @@ export function HeaderMenu() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Funktion für das sanfte Scrollen
+  const handleSmoothScroll = (event) => {
+    event.preventDefault();  // Verhindert das Standard-Scrollen
+
+    const targetId = event.currentTarget.getAttribute('href').substring(1);  // Entfernt das '#' von der URL
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth', // Sanftes Scrollen
+        block: 'start',     // Scrollt zum Anfang des Ziels
+      });
+    }
+  };
 
   const items = links.map((link) => {
     if (link.download) {
@@ -95,10 +111,12 @@ export function HeaderMenu() {
       );
     }
 
+    // Hier fügen wir die Funktion für das sanfte Scrollen hinzu
     return (
       <a
         key={link.label}
         href={link.link}
+        onClick={handleSmoothScroll}  // Event-Handler für das Scrollen
         className={`${classes.link} ${isScrolled ? classes.lightLink : classes.darkLink}`}
       >
         {link.label}

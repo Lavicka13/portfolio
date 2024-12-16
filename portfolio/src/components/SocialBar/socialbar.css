@@ -11,30 +11,23 @@
   background-color: rgba(0, 0, 0, 0.7); /* Halbtransparenter Hintergrund */
   border-radius: 0 8px 8px 0; /* Abgerundete Kante auf der rechten Seite */
   z-index: 1000;
-  transition: width 3s; /* Übergangseffekt für die Breite */
-}
-
-.social-bar:hover {
-  width: 15%; /* Breite beim Hover */
 }
 
 .social-bar a {
-  margin: 10px 0;
-  transition: transform 0.2s ease;
-
+  margin: 20px 0; /* Vergrößert die Abstände zwischen den Icons */
+  transition: transform 0.3s ease; /* Smoother Übergang bei der Vergrößerung */
 }
 
+/* Vergrößern der Icons auf 1.4x bei Hover */
 .social-bar a:hover {
-  transform: scale(1.2); 
+  transform: scale(1.4); 
 }
 
+/* Kontaktinformationen nicht anzeigen */
 .contact-info {
-  display: none; /* Versteckt die Kontaktinformationen standardmäßig */
-  margin-left: 0px;
-  white-space: nowrap; /* Verhindert, dass der Text unter das Icon rutscht */
+  display: none;
 }
 
 .social-bar:hover .contact-info {
-  display: block; /* Zeigt die Kontaktinformationen beim Hover */
-  
+  display: none;
 }

@@ -21,7 +21,7 @@ function Skills() {
   return (
     <section id="skills">
       <Container>
-        <div style={{ height: '20px', marginTop: '-50px' }} aria-hidden="true"></div>
+        <div style={{ height: '20px' }} aria-hidden="true"></div>
         <Title className="title">Skills</Title>
         <Grid gutter="xl">
           {skills.map((skill, index) => {

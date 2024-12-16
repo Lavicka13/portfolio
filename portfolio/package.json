@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@iconscout/react-unicons-solid": "^1.1.2",
+    "@iconscout/unicons": "^4.0.8",
     "@mantine/core": "^7.14.3",
     "@mantine/form": "^7.15.1",
     "@mantine/hooks": "^7.14.3",
+    "@mantine/notifications": "^7.15.1",
     "@tabler/icons-react": "^3.24.0",
     "cra-template": "1.2.0",
     "react": "^19.0.0",

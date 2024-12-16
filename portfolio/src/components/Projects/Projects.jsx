@@ -33,7 +33,7 @@ function Projects() {
   return (
     <section id="projects" className="section light-background">
       <Container>
-        <div style={{ height: '1px', marginTop: '-20px' }} aria-hidden="true"></div>
+        <div style={{ height: '1px', marginTop:'80px'}} aria-hidden="true"></div>
         <Title className="title">My Projects</Title>
         <Grid gutter="xl">
           {projects.map((project, index) => (

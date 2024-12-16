@@ -9,6 +9,9 @@ import Projects from './components/Projects/Projects.jsx';
 import SocialBar from './components/SocialBar/socialbar.jsx';
 import GetInTouch from './components/Contact/GetInTouchSimple.tsx';
 import ScrollToTopButton from './components/ScrollToTopButton/ScrollToTopButton.jsx';
+import { Notifications } from '@mantine/notifications';
+
+
 
 
 function App() {
@@ -16,6 +19,7 @@ function App() {
   return (
     
     <MantineProvider withGlobalStyles withNormalizeCSS>
+      <Notifications />
       <HeaderMenu />
       <SocialBar />
       <About />

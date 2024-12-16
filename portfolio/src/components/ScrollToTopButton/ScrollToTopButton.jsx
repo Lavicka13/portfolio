@@ -1,59 +1,45 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
+import './ScrollToTopButton.css';
 
-const ScrollToTopButton = () => {
-  const [isVisible, setIsVisible] = useState(false);  // Zustand, um den Button anzuzeigen oder zu verstecken
-  const buttonRef = useRef(null);  // Referenz für den Button
+function ScrollToTopButton() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [progress, setProgress] = useState(100);
 
-  // Funktion zum Überwachen des Scrollens und Festlegen der Sichtbarkeit des Buttons
-  const scrollFunction = () => {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      setIsVisible(true);  // Button anzeigen, wenn der Benutzer mehr als 20px gescrollt hat
-    } else {
-      setIsVisible(false);  // Button verstecken, wenn der Benutzer weniger als 20px gescrollt hat
-    }
+  // Scroll handler
+  const handleScroll = () => {
+    const scrollTop = window.scrollY;
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progressValue = Math.max(100 - (scrollTop / windowHeight) * 100, 0);
+    setProgress(progressValue);
+    setIsVisible(scrollTop > 50);
   };
 
-  // Funktion, um zum Seitenanfang zu scrollen, wenn der Button geklickt wird
-  const topFunction = () => {
-    document.body.scrollTop = 0;  // Safari
-    document.documentElement.scrollTop = 0;  // Chrome, Firefox, IE und Opera
+  // Scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // useEffect-Hook, um das Scrollereignis hinzuzufügen
   useEffect(() => {
-    window.onscroll = scrollFunction;
-
-    // Aufräumen des Ereignisses beim Verlassen der Komponente
-    return () => {
-      window.onscroll = null;
-    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div>
-      <button
-        ref={buttonRef}
-        onClick={topFunction}
-        id="myBtn"
-        title="Go to top"
-        style={{
-          display: isVisible ? 'block' : 'none',  // Button anzeigen, wenn sichtbar
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          backgroundColor: '#007BFF',
-          color: 'white',
-          border: 'none',
-          borderRadius: '50%',
-          padding: '10px',
-          fontSize: '18px',
-          cursor: 'pointer',
-        }}
+      
+      <div 
+        className={`progress-wrap ${isVisible ? 'active-progress' : ''}`} 
+        onClick={scrollToTop}
       >
-        Top
-      </button>
+        <svg className="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+          <path 
+            d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" 
+            style={{ strokeDasharray: '100, 100', strokeDashoffset: `${progress}` }}
+          />
+        </svg>
+      </div>
     </div>
   );
-};
+}
 
 export default ScrollToTopButton;
