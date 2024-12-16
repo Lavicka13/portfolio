@@ -65,7 +65,7 @@ function GetInTouchSimple() {
 
   return (
     <section id= "contact">
-    <div >
+    <div>
       <Notification
         message={notification.message}
         type={notification.type}

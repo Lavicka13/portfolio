@@ -21,7 +21,7 @@ const links = [
     label: 'Download Resume',
     download: true, // CV-Link hat ein Download-Flag
   },
-  { link: "#contact", label: 'Contact Me'}
+  { link: "#contact", label: 'Contact Me' }
 ];
 
 export function HeaderMenu() {
@@ -79,6 +79,7 @@ export function HeaderMenu() {
           target="_blank"
           rel="noopener noreferrer"
           className={`${classes.menuItem} ${isScrolled ? classes.lightLink : classes.darkLink}`}
+          onClick={handleSmoothScroll} // Hier fügen wir auch das Scrollen für Untermenü-Links hinzu
         >
           {item.label}
         </a>
@@ -97,6 +98,7 @@ export function HeaderMenu() {
             <a
               href={link.link}
               className={`${classes.link} ${isScrolled ? classes.lightLink : classes.darkLink}`}
+              onClick={handleSmoothScroll} // Hier wird die Scroll-Funktion auch für den Hauptlink angewendet
             >
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
@@ -111,12 +113,12 @@ export function HeaderMenu() {
       );
     }
 
-    // Hier fügen wir die Funktion für das sanfte Scrollen hinzu
+    // Wenn es kein Untermenü gibt, wird der Link mit der Scroll-Funktion versehen
     return (
       <a
         key={link.label}
         href={link.link}
-        onClick={handleSmoothScroll}  // Event-Handler für das Scrollen
+        onClick={handleSmoothScroll}  // Scroll-Funktion für Links ohne Untermenü
         className={`${classes.link} ${isScrolled ? classes.lightLink : classes.darkLink}`}
       >
         {link.label}
