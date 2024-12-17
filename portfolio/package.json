@@ -11,9 +11,11 @@
     "@mantine/notifications": "^7.15.1",
     "@tabler/icons-react": "^3.24.0",
     "cra-template": "1.2.0",
+    "jquery": "^3.7.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1",
+    "vanilla-tilt": "^1.8.1",
     "web-vitals": "^4.2.4"
   },
   "scripts": {

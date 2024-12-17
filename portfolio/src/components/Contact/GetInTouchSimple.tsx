@@ -31,6 +31,7 @@ function GetInTouchSimple() {
       name: (value) => value.trim().length < 2 && 'Name must be at least 2 characters long',
       email: (value) => !/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(value) && 'Invalid email address',
       subject: (value) => value.trim().length === 0 && 'Subject cannot be empty',
+      message: (value) => value.trim().length < 50 && 'Message must be at least 50 characters long'
     },
   });
 

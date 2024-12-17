@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Grid, Image, Container, Text, Title } from '@mantine/core';
+import VanillaTilt from 'vanilla-tilt';
 import './projects.css';
 
 const projects = [
@@ -30,27 +31,46 @@ const projects = [
 ];
 
 function Projects() {
+  const tiltRefs = useRef([]);
+
+  useEffect(() => {
+    tiltRefs.current.forEach((ref) => {
+      if (ref) {
+        VanillaTilt.init(ref, {
+          max: 25,
+          speed: 400,
+          glare: true,
+          "max-glare": 1,
+        });
+      }
+    });
+  }, []);
+
   return (
     <section id="projects" className="section light-background">
-      <Container>
+      <Container className='container'>
         <div style={{ height: '1px', marginTop:'80px'}} aria-hidden="true"></div>
         <Title className="title">My Projects</Title>
         <Grid gutter="xl">
           {projects.map((project, index) => (
             <Grid.Col key={index} span={6} style={{ marginBottom: '80px' }}>
               <a href={project.link} target="_blank" rel="noopener noreferrer"> {/* Link um das Bild klickbar zu machen */}
-                <div className="icon-wrapper-project">
-                  <Image
-                    src={project.icon}
-                    alt={project.title}
-                    width={300}
-                    height={300}
-                    className="iconproject"
-                  />
+                <div className="card" ref={(el) => (tiltRefs.current[index] = el)}>
+                  <div className="imgBx">
+                    <Image
+                      src={project.icon}
+                      alt={project.title}
+                      width={300}
+                      height={300}
+                      className="iconproject"
+                    />
+                  </div>
+                  <Container className='content'>
+                    <Text align="center" size="xl" mt="sm">{project.title}</Text>
+                    <Text align="center" size="md" c="dimmed" mb="xl">{project.description}</Text>
+                  </Container>
                 </div>
               </a>
-              <Text align="center" size="xl" mt="sm">{project.title}</Text>
-              <Text align="center" size="md" c="dimmed" mb="xl">{project.description}</Text>
             </Grid.Col>
           ))}
         </Grid>
