@@ -37,19 +37,12 @@
   transition: color 0.9s ease; /* Weicher Übergang der Schriftfarbe */
 }
 
-.lightHeader .link {
-  color: black; 
-}
-
-.darkHeader .link {
-  color: white; 
-}
 
 /* Links im Header mit Asterisk für hover */
 .header a {
   display: inline-block;
   position: relative;
-  color: #0087ca;
+  color: #d0e4ee;
   text-decoration: none;
 }
 

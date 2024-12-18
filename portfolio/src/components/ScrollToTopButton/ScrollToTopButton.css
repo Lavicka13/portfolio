@@ -2,7 +2,7 @@
   --red: #da2c4d;
   --yellow: #f8ab37;
   --grey: #ecedf3;
-  --black-blue: #565c91;
+  --black-blue: #d15766;
 }
 
 .progress-wrap {
@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1); /* Halbtransparenter Hintergrund */
+  background: rgba(255, 255, 255, 0.9); /* Halbtransparenter Hintergrund */
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2), 
               0 4px 6px rgba(0, 0, 0, 0.2); /* Leichte Schatten */
   backdrop-filter: blur(8px); /* Glaseffekt durch Unschärfe */
@@ -40,7 +40,7 @@
 .progress-circle path {
   fill: none;
   stroke: var(--black-blue);
-  stroke-width: 4;
+  stroke-width: 6;
   box-sizing: border-box;
   transition: stroke-dashoffset 200ms linear;
 }

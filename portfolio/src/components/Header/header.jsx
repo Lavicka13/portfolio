@@ -28,21 +28,6 @@ export function HeaderMenu() {
   const [opened, { toggle }] = useDisclosure(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const skillsSection = document.getElementById('skills');
-      if (!skillsSection) return;
-
-      const skillsTop = skillsSection.getBoundingClientRect().top;
-      setIsScrolled(skillsTop <= 0); // Ändert Zustand basierend auf Scroll-Position
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   // Funktion für das sanfte Scrollen
   const handleSmoothScroll = (event) => {
     event.preventDefault();  // Verhindert das Standard-Scrollen

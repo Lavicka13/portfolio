@@ -1,35 +1,40 @@
 import React from 'react';
-import { Grid, Title, Tooltip, Image, Container } from '@mantine/core';
+import { Grid, Title, Tooltip, Image, Container, Text } from '@mantine/core';
 import './skills.css';
 
+
+
+// Skills mit Erfahrungslevel (1 bis 5 Sterne)
 const skills = [
-  { title: 'C#', picture: '/assets/icons/c.svg', url: 'https://learn.microsoft.com/en-us/dotnet/csharp/' },
-  { title: 'React', picture: '/assets/icons/react.svg', url: 'https://reactjs.org/' },
-  { title: 'GIT', picture: '/assets/icons/git.png', url: 'https://git-scm.com/' },
-  { title: 'JavaScript', picture: '/assets/icons/js.png', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
-  { title: 'HTML', picture: '/assets/icons/html.svg', url: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
-  { title: 'CSS', picture: '/assets/icons/css.svg', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
-  { title: 'Visual Studio Code', picture: '/assets/icons/visual-studio-code.svg', url: 'https://code.visualstudio.com/' },
-  { title: 'MySQL', picture: '/assets/icons/MySQL_logo.svg', url: 'https://www.mysql.com/' },
-  { title: 'Mantine', picture: '/assets/icons/mantine.com.png', url: 'https://mantine.dev/' },
-  { title: 'Figma', picture: '/assets/icons/figma.png', url: 'https://www.figma.com/' },
-  { title: 'Canva', picture: '/assets/icons/canva.svg', url: 'https://www.canva.com/' },
-  { title: 'Slack', picture: '/assets/icons/slack.svg', url: 'https://slack.com/' },
+  { title: 'C#', picture: '/assets/icons/c.svg', url: 'https://learn.microsoft.com/en-us/dotnet/csharp/', experience: "4/5" },
+  { title: 'React', picture: '/assets/icons/react.svg', url: 'https://reactjs.org/', experience: "3/5" },
+  { title: 'GIT', picture: '/assets/icons/git.png', url: 'https://git-scm.com/', experience: "2/5" },
+  { title: 'JavaScript', picture: '/assets/icons/js.png', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', experience: "3/5" },
+  { title: 'HTML', picture: '/assets/icons/html.svg', url: 'https://developer.mozilla.org/en-US/docs/Web/HTML', experience: "4/5" },
+  { title: 'CSS', picture: '/assets/icons/css.svg', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS', experience: "3/5" },
+  { title: 'Visual Studio Code', picture: '/assets/icons/visual-studio-code.svg', url: 'https://code.visualstudio.com/', experience: "4/5" },
+  { title: 'MySQL', picture: '/assets/icons/MySQL_logo.svg', url: 'https://www.mysql.com/', experience: "3/5" },
+  { title: 'Mantine', picture: '/assets/icons/mantine.com.png', url: 'https://mantine.dev/', experience: "3/5" },
+  { title: 'Figma', picture: '/assets/icons/figma.png', url: 'https://www.figma.com/', experience: "2/5" },
+  { title: 'Canva', picture: '/assets/icons/canva.svg', url: 'https://www.canva.com/', experience: "4/5" },
+  { title: 'Slack', picture: '/assets/icons/slack.svg', url: 'https://slack.com/', experience: "2/5" },
 ];
+
+
 
 function Skills() {
   return (
     <section id="skills">
       <Container>
-        <div style={{ height: '20px' }} aria-hidden="true"></div>
-        <Title className="title">Skills</Title>
+        <div style={{ height: '250px' }} aria-hidden="true"></div>
+        <Title className="title" data-aos="fade-right" c="white">Skills</Title>
         <Grid gutter="xl">
           {skills.map((skill, index) => {
             return (
               <Grid.Col key={index} span={4}>
-                <Tooltip label={skill.title} position="top" withArrow >
+                <Tooltip label={skill.title} position="top" withArrow>
                   <a href={skill.url} target="_blank" rel="noopener noreferrer" className="icon-link">
-                    <div className="icon-wrapper">
+                    <div className="icon-wrapper" data-aos="fade-up">
                       <Image
                         src={skill.picture}
                         alt={skill.title}
@@ -37,9 +42,13 @@ function Skills() {
                         height={80}
                         className="icon"
                       />
+                     
+                      
                     </div>
                   </a>
                 </Tooltip>
+                {/* Sterne unterhalb des Icons */}
+                
               </Grid.Col>
             );
           })}

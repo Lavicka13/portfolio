@@ -47,16 +47,16 @@ function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="section light-background">
-      <Container className='container'>
-        <div style={{ height: '1px', marginTop:'80px'}} aria-hidden="true"></div>
-        <Title className="title">My Projects</Title>
+    <section id="projects" className="section light-background" >
+      <Container className='container' >
+      <div style={{ height: '250px' }} aria-hidden="true"></div>
+        <Title className="title" data-aos="fade-left" c="white">My Projects</Title>
         <Grid gutter="xl">
           {projects.map((project, index) => (
-            <Grid.Col key={index} span={6} style={{ marginBottom: '80px' }}>
+            <Grid.Col key={index} span={6} style={{ marginBottom: '60px' }} >
               <a href={project.link} target="_blank" rel="noopener noreferrer"> {/* Link um das Bild klickbar zu machen */}
-                <div className="card" ref={(el) => (tiltRefs.current[index] = el)}>
-                  <div className="imgBx">
+                <div className="card" ref={(el) => (tiltRefs.current[index] = el)} >
+                  <div className="imgBx" >
                     <Image
                       src={project.icon}
                       alt={project.title}

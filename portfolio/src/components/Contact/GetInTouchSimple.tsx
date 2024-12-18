@@ -73,8 +73,8 @@ function GetInTouchSimple() {
         onClose={() => setNotification({ message: '', type: '' })}
       />
 
-      <form onSubmit={form.onSubmit(handleSubmit)} className="form">
-        <Title order={2} size="h1" ta="center">
+      <form onSubmit={form.onSubmit(handleSubmit)} className="form" data-aos="fade-up">
+        <Title order={2} size="h1" ta="center" data-aos="fade-right">
           Get in touch
         </Title>
 

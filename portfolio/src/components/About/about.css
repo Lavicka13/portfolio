@@ -1,16 +1,4 @@
-
-#about {
-    position: relative;
-    height: 110vh;
-    background-image: url('bg.jpg'); 
-    background-size: cover;
-    background-position: top center;
-    background-attachment: fixed;
-    padding-top: 56px;
-    margin-top:-360px;
-  }
-    
-  
+ 
   .container {
     position: relative; 
     padding: 50px 0; 
@@ -24,14 +12,12 @@
     
   }
   
-  
   .textAbout {
     color: white; 
     text-align: right;
     margin-top: 70px;
     font-size: xx-large;
     margin-right: -80px;
-    
   }
 
   .textIntro{
@@ -45,11 +31,9 @@
     width: 300px;
     margin-left: 890px;
     margin-top: 0;
-
   }
 
   .socialIcons{
     color:white;
-    
   }
   

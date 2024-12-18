@@ -2,14 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+   
     width: 100%;
     height: 100%;
     transition: transform 0.2s ease-in-out;
   }
   
-  .icon-wrapper:hover {
-    transform: scale(1.4); /* Vergrößert das Icon leicht */
-  }
+  
   
   .icon {
     max-width: 100%;
@@ -25,4 +24,8 @@
     text-align: center;          /* Stellt sicher, dass der Text auch horizontal innerhalb des Containers zentriert ist */
     margin-bottom: 40px;
   }
- 
+
+
+.icon-wrapper:hover {
+  transform: scale(1.4); /* Vergrößert das Icon leicht */
+}
