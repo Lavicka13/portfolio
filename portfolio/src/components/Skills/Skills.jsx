@@ -2,9 +2,6 @@ import React from 'react';
 import { Grid, Title, Tooltip, Image, Container, Text } from '@mantine/core';
 import './skills.css';
 
-
-
-// Skills mit Erfahrungslevel (1 bis 5 Sterne)
 const skills = [
   { title: 'C#', picture: '/assets/icons/c.svg', url: 'https://learn.microsoft.com/en-us/dotnet/csharp/', experience: "4/5" },
   { title: 'React', picture: '/assets/icons/react.svg', url: 'https://reactjs.org/', experience: "3/5" },
@@ -20,8 +17,6 @@ const skills = [
   { title: 'Slack', picture: '/assets/icons/slack.svg', url: 'https://slack.com/', experience: "2/5" },
 ];
 
-
-
 function Skills() {
   return (
     <section id="skills">
@@ -32,6 +27,9 @@ function Skills() {
           {skills.map((skill, index) => {
             return (
               <Grid.Col key={index} span={4}>
+                <Text align="center" size="sm" mt="sm" className="experience-text" c="white" data-aos="fade-up">
+                  {skill.experience}
+                </Text>
                 <Tooltip label={skill.title} position="top" withArrow>
                   <a href={skill.url} target="_blank" rel="noopener noreferrer" className="icon-link">
                     <div className="icon-wrapper" data-aos="fade-up">
@@ -42,12 +40,10 @@ function Skills() {
                         height={80}
                         className="icon"
                       />
-                     
-                      
                     </div>
                   </a>
                 </Tooltip>
-                {/* Sterne unterhalb des Icons */}
+                {/* Experience unterhalb der Icons */}
                 
               </Grid.Col>
             );

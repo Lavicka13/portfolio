@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   
     width: 100%;
     height: 100%;
     transition: transform 0.2s ease-in-out;
@@ -28,4 +27,8 @@
 
 .icon-wrapper:hover {
   transform: scale(1.4); /* Vergrößert das Icon leicht */
+}
+
+#skills {
+  scroll-margin-top: -100px; /* Reduziert den Abstand zur oberen Kante */
 }
