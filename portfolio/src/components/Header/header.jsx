@@ -19,27 +19,31 @@ const links = [
   {
     link: '/assets/CV.pdf',
     label: 'Download Resume',
-    download: true, // CV-Link hat ein Download-Flag
+    download: true,
   },
-  { link: "#contact", label: 'Contact Me' }
+  { link: '#contact', label: 'Contact Me' },
 ];
 
 export function HeaderMenu() {
   const [opened, { toggle }] = useDisclosure(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Funktion für das sanfte Scrollen
-  const handleSmoothScroll = (event) => {
-    event.preventDefault();  // Verhindert das Standard-Scrollen
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); // Header wechselt bei Scroll
+    };
 
-    const targetId = event.currentTarget.getAttribute('href').substring(1);  // Entfernt das '#' von der URL
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleSmoothScroll = (event) => {
+    event.preventDefault();
+    const targetId = event.currentTarget.getAttribute('href').substring(1);
     const targetElement = document.getElementById(targetId);
 
     if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth', // Sanftes Scrollen
-        block: 'start',     // Scrollt zum Anfang des Ziels
-      });
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -50,7 +54,7 @@ export function HeaderMenu() {
           key={link.label}
           href={link.link}
           download
-          className={`${classes.link} ${isScrolled ? classes.lightLink : classes.darkLink}`}
+          className={classes.link}
         >
           {link.label}
         </a>
@@ -63,8 +67,7 @@ export function HeaderMenu() {
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${classes.menuItem} ${isScrolled ? classes.lightLink : classes.darkLink}`}
-          onClick={handleSmoothScroll} // Hier fügen wir auch das Scrollen für Untermenü-Links hinzu
+          className={classes.menuItem}
         >
           {item.label}
         </a>
@@ -82,8 +85,7 @@ export function HeaderMenu() {
           <Menu.Target>
             <a
               href={link.link}
-              className={`${classes.link} ${isScrolled ? classes.lightLink : classes.darkLink}`}
-              onClick={handleSmoothScroll} // Hier wird die Scroll-Funktion auch für den Hauptlink angewendet
+              className={classes.link}
             >
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
@@ -91,20 +93,19 @@ export function HeaderMenu() {
               </Center>
             </a>
           </Menu.Target>
-          <Menu.Dropdown className={`${classes.dropdownMenu} ${isScrolled ? classes.lightDropdown : classes.darkDropdown}`}>
+          <Menu.Dropdown className={classes.dropdownMenu}>
             {menuItems}
           </Menu.Dropdown>
         </Menu>
       );
     }
 
-    // Wenn es kein Untermenü gibt, wird der Link mit der Scroll-Funktion versehen
     return (
       <a
         key={link.label}
         href={link.link}
-        onClick={handleSmoothScroll}  // Scroll-Funktion für Links ohne Untermenü
-        className={`${classes.link} ${isScrolled ? classes.lightLink : classes.darkLink}`}
+        onClick={handleSmoothScroll}
+        className={classes.link}
       >
         {link.label}
       </a>

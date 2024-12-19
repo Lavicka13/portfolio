@@ -1,8 +1,5 @@
 :root {
-  --red: #da2c4d;
-  --yellow: #f8ab37;
-  --grey: #ecedf3;
-  --black-blue: #d15766;
+  --orange: #d15766;
 }
 
 .progress-wrap {
@@ -39,7 +36,7 @@
 
 .progress-circle path {
   fill: none;
-  stroke: var(--black-blue);
+  stroke: var(--orange);
   stroke-width: 6;
   box-sizing: border-box;
   transition: stroke-dashoffset 200ms linear;
@@ -48,7 +45,7 @@
 .progress-icon {
   position: absolute;
   font-size: 80px;
-  color: var(--black-blue);
+  color: var(--orange);
   z-index: 10;
 }
 
@@ -57,11 +54,11 @@ body.light .progress-wrap {
 }
 
 body.light .progress-circle path {
-  stroke: var(--black-blue);
+  stroke: var(--orange);
 }
 
 .progress-text {
-  color: var(--black-blue);
+  color: var(--orange);
   font-weight: bold;
   text-transform: uppercase;
   

@@ -5,7 +5,7 @@ import './about.css';
 
 function About() {
   return (
-    <section id="about" className="about-section">
+    <section id="about">
       <Container>
         <div style={{ height: '125px' }}></div>
         <Image 

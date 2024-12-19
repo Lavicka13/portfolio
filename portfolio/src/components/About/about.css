@@ -1,39 +1,96 @@
- 
-  .container {
-    position: relative; 
-    padding: 50px 0; 
-  }
-  
-  
+/* Standard Styles für größere Bildschirme */
+.container {
+  position: relative;
+  padding: 50px 0;
+}
+
+.titleAbout {
+  color: white;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.textAbout {
+  color: white;
+  text-align: right;
+  margin-top: 70px;
+  font-size: xx-large;
+  margin-right: -80px;
+}
+
+.textIntro {
+  color: white;
+  font-size: 70px;
+  margin-top: -80px;
+  margin-left: -100px;
+}
+
+.profilImg {
+  width: 300px;
+  margin-left: 890px;
+  margin-top: 0;
+}
+
+.socialIcons {
+  color: white;
+}
+
+/* Mobile Styles (ab einer Breite von 768px) */
+@media only screen and (max-width: 768px) {
   .titleAbout {
-    color: white; 
-    text-align: center;
-    margin-top:80px;
-    
+    margin-top: 50px;
+    font-size: 2rem; /* Kleinere Schriftgröße für kleinere Bildschirme */
   }
-  
+
   .textAbout {
-    color: white; 
-    text-align: right;
-    margin-top: 70px;
-    font-size: xx-large;
-    margin-right: -80px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.5rem;
+    margin-right: 0;
   }
 
-  .textIntro{
-    color: white; 
-    font-size: 70px;
-    margin-top: -80px;
-    margin-left: -100px;
-  }
-  
-  .profilImg {
-    width: 300px;
-    margin-left: 890px;
+  .textIntro {
+    font-size: 40px; /* Kleinere Schriftgröße */
     margin-top: 0;
+    margin-left: 0; /* Kein Versatz mehr */
   }
 
-  .socialIcons{
-    color:white;
+  .profilImg {
+    width: 200px; /* Kleinere Profilbildgröße */
+    margin-left: auto;
+    margin-right: auto; /* Zentriert das Profilbild */
+    display: block; /* Block-Element, damit es besser zentriert wird */
+    margin-top: 20px;
   }
-  
+
+  .socialIcons {
+    font-size: 1.2rem; /* Kleinere Größe für die Icons */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+/* Mobile Styles (ab einer Breite von 480px) */
+@media only screen and (max-width: 480px) {
+  .titleAbout {
+    font-size: 1.5rem; /* Weitere Reduzierung der Schriftgröße */
+  }
+
+  .textAbout {
+    font-size: 1.2rem; /* Weitere Reduzierung */
+  }
+
+  .textIntro {
+    font-size: 30px; /* Kleinere Schriftgröße */
+  }
+
+  .profilImg {
+    width: 150px; /* Noch kleinere Profilbildgröße */
+    margin-top: 10px;
+  }
+
+  .socialIcons {
+    font-size: 1rem; /* Weiterhin kleinere Icons */
+  }
+}

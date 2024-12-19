@@ -1,18 +1,18 @@
-a{
+/* Allgemeine Stile */
+a {
   text-decoration: none;
 }
+
 .container {
   position: relative;
-  width: 1100px;
+  width: 100%; /* Volle Breite auf mobilen Geräten */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   padding: 50px 20px;
   transform-style: preserve-3d;
-  height: 1300px;
-  
-  
+  height: auto; /* Höhe automatisch anpassen */
 }
 
 .container .card {
@@ -28,8 +28,7 @@ a{
   transition: height 0.5s ease-in-out;
 }
 
-.js-tilt-glare
-{
+.js-tilt-glare {
   border-radius: 4px;
 }
 
@@ -42,8 +41,7 @@ a{
   top: 0;
   left: 0;
   right: 0;
-  min-width: initial;
-  width: 400px;
+  width: 100%;
   height: 360px;
   border-radius: 4px;
   z-index: 1;
@@ -52,97 +50,25 @@ a{
   transition: 0.5s;
 }
 
-.container .card .imgBx img{
+.container .card .imgBx img {
   max-width: 100%;
-  border-radius: 4px;a {
-    text-decoration: none;
-  }
-  
-  .container {
-    position: relative;
-    width: 1100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 50px 20px;
-    transform-style: preserve-3d;
-  }
-  
-  .card {
-    width: 400px;
-    height: 400px; /* Feste Höhe */
-    margin: 50px 20px;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    border-radius: 4px;
-    flex-direction: column;
-    transform-style: preserve-3d;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.5s ease-in-out; /* Übergangseffekt für die Transformation */
-  }
-  
-  .js-tilt-glare {
-    border-radius: 4px;
-  }
-  
-  .card:hover {
-    transform: translateY(-20px); /* Hebt die Karte leicht an */
-  }
-  
-  .imgBx {
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    min-width: initial;
-    width: 400px;
-    height: 360px;
-    border-radius: 4px;
-    z-index: 1;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transform-style: preserve-3d;
-    transition: 0.5s;
-  }
-  
-  .imgBx img {
-    max-width: 100%;
-    border-radius: 4px;
-  }
-  
-  .content {
-    position: relative;
-    padding: 10px 15px;
-    text-align: center;
-    color: #fff;
-    opacity: 0;
-    transition: 0.5s;
-    transform: translateY(-140px) scale(1);
-  }
-  
-  .card:hover .content {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(-40px) scale(1);
-    
-  }
-  
+  border-radius: 4px;
 }
 
-.container .card .content{
-  position:relative;
+.container .card .content {
+  position: relative;
   padding: 10px 15px;
   text-align: center;
   color: #ce2a2a;
   visibility: hidden;
   transform: translateY(-140px) scale(1);
 }
-.container .card:hover .content{
-  visibility: relative;
+
+.container .card:hover .content {
+  visibility: visible;
   padding: 10px;
   opacity: 1;
   transform: translateY(-40px) scale(1);
-  
 }
 
 .container .card:hover .imgBx {
@@ -172,4 +98,51 @@ a{
   visibility: visible;
   opacity: 1;
   transform: translateY(-40px) scale(1);
+}
+
+/* Media Queries für mobile Geräte */
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .container .card {
+    width: 90%; /* Breite anpassen */
+    height: auto; /* Höhe auf automatisch setzen */
+    margin: 20px 0; /* Weniger Margin für kleinere Bildschirme */
+  }
+
+  .container .card .imgBx {
+    height: 300px; /* Kleinere Höhe für Bilder */
+  }
+
+  .container .card .content {
+    font-size: 14px; /* Kleinere Schriftgröße für Content */
+  }
+
+  .container .card:hover {
+    transform: translateY(0); /* Auf mobilen Geräten keine Hover-Transformation */
+  }
+}
+
+/* Media Queries für sehr kleine Bildschirme (z. B. Smartphones) */
+@media only screen and (max-width: 480px) {
+  .container .card {
+    width: 100%; /* Kartenbreite auf 100% setzen */
+    height: auto; /* Höhe automatisch anpassen */
+    margin: 10px 0; /* Weniger Abstand zwischen den Karten */
+  }
+
+  .container .card .imgBx {
+    height: 250px; /* Kleinere Bildhöhe */
+  }
+
+  .container .card .content {
+    font-size: 12px; /* Noch kleinere Schriftgröße */
+    padding: 5px 10px; /* Weniger Padding */
+  }
+
+  .container .card:hover {
+    transform: translateY(0); /* Auf sehr kleinen Bildschirmen keine Hover-Animation */
+  }
 }

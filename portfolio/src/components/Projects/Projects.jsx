@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Grid, Image, Container, Text, Title } from '@mantine/core';
 import VanillaTilt from 'vanilla-tilt';
 import './projects.css';
+import 'aos/dist/aos.css';  // AOS CSS importieren
 
 const projects = [
   {
@@ -47,7 +48,7 @@ function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="section light-background" >
+    <section id="projects">
       <Container className='container' >
       <div style={{ height: '250px' }} aria-hidden="true"></div>
         <Title className="title" data-aos="fade-left" c="white">My Projects</Title>
@@ -55,7 +56,7 @@ function Projects() {
           {projects.map((project, index) => (
             <Grid.Col key={index} span={6} style={{ marginBottom: '60px' }} >
               <a href={project.link} target="_blank" rel="noopener noreferrer"> {/* Link um das Bild klickbar zu machen */}
-                <div className="card" ref={(el) => (tiltRefs.current[index] = el)} >
+                <div className="card" aos= "fade-up" ref={(el) => (tiltRefs.current[index] = el)} >
                   <div className="imgBx" >
                     <Image
                       src={project.icon}
