@@ -34,9 +34,10 @@
 .socialIcons {
   color: white;
 }
-
-/* Mobile Styles (ab einer Breite von 768px) */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
+  html, body {
+    width: 100%;        /* Stellt sicher, dass die Breite auf 100% des Viewports begrenzt ist */
+  }
   .titleAbout {
     margin-top: 50px;
     font-size: 2rem; /* Kleinere Schriftgröße für kleinere Bildschirme */
@@ -50,8 +51,9 @@
   }
 
   .textIntro {
+    text-align: center;
     font-size: 40px; /* Kleinere Schriftgröße */
-    margin-top: 0;
+    margin-top: 20px;
     margin-left: 0; /* Kein Versatz mehr */
   }
 
@@ -60,19 +62,53 @@
     margin-left: auto;
     margin-right: auto; /* Zentriert das Profilbild */
     display: block; /* Block-Element, damit es besser zentriert wird */
-    margin-top: 20px;
+    margin-top: -30px;
   }
 
-  .socialIcons {
-    font-size: 1.2rem; /* Kleinere Größe für die Icons */
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+}
+
+
+/* Mobile Styles (ab einer Breite von 768px) */
+@media only screen and (max-width: 768px) {
+  html, body {
+    width: 100%;        /* Stellt sicher, dass die Breite auf 100% des Viewports begrenzt ist */
   }
+  .titleAbout {
+    margin-top: 50px;
+    font-size: 2rem; /* Kleinere Schriftgröße für kleinere Bildschirme */
+  }
+
+  .textAbout {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.5rem;
+    margin-right: 0;
+  }
+
+  .textIntro {
+    text-align: center;
+    font-size: 40px; /* Kleinere Schriftgröße */
+    margin-top: 20px;
+    margin-left: 0; /* Kein Versatz mehr */
+  }
+
+  .profilImg {
+    width: 200px; /* Kleinere Profilbildgröße */
+    margin-left: auto;
+    margin-right: auto; /* Zentriert das Profilbild */
+    display: block; /* Block-Element, damit es besser zentriert wird */
+    margin-top: 200px;
+  }
+
 }
 
 /* Mobile Styles (ab einer Breite von 480px) */
 @media only screen and (max-width: 480px) {
+
+  html, body {
+    
+    width: 100%;        /* Stellt sicher, dass die Breite auf 100% des Viewports begrenzt ist */
+  }
   .titleAbout {
     font-size: 1.5rem; /* Weitere Reduzierung der Schriftgröße */
   }
@@ -87,7 +123,7 @@
 
   .profilImg {
     width: 150px; /* Noch kleinere Profilbildgröße */
-    margin-top: 10px;
+    margin-top: 200px;
   }
 
   .socialIcons {

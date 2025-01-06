@@ -63,3 +63,9 @@ body.light .progress-circle path {
   text-transform: uppercase;
   
 }
+
+@media only screen and (max-width: 480px) {
+  .progress-wrap {
+    display: none; /* Versteckt den Button komplett auf mobilen Geräten */
+  }
+}

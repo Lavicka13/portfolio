@@ -23,11 +23,9 @@
   transform: scale(1.4); 
 }
 
-/* Kontaktinformationen nicht anzeigen */
-.contact-info {
-  display: none;
-}
 
-.social-bar:hover .contact-info {
-  display: none;
+@media (max-width: 768px) {
+  .social-bar {
+    display: none;
+  }
 }

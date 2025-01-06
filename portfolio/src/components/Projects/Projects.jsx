@@ -8,25 +8,25 @@ const projects = [
   {
     title: 'Random Quote Generator',
     description: 'I learned how to fetch data from an API and display it dynamically, while improving my understanding of JavaScript promises and fetch calls.',
-    icon: '/assets/projects/quotegenerator.png',
+    icon: process.env.PUBLIC_URL + '/assets/projects/quotegenerator.png',  // Pfad anpassen
     link: 'https://github.com/Lavicka13/QuoteGenerator', 
   },
   {
     title: 'Music Player',
     description: 'This project taught me how to set up a mock API, manage state effectively, and create an interactive UI with React for audio playback functionality.',
-    icon: '/assets/projects/musicplayer.png',
+    icon: process.env.PUBLIC_URL + '/assets/projects/musicplayer.png',  // Pfad anpassen
     link: 'https://github.com/Lavicka13/musicplayer', 
   },
   {
     title: 'To Do List',
     description: 'My first project using React and the Mantine library, where I learned component structuring, state management, and modern UI design principles.',
-    icon: '/assets/projects/todolist.png',
+    icon: process.env.PUBLIC_URL + '/assets/projects/todolist.png',  // Pfad anpassen
     link: 'https://github.com/Lavicka13/todo-list-app', 
   },
   {
     title: 'Login Form',
     description: 'A deeper dive into React and Mantine library to create a user-friendly and responsive login form with validation and state handling.',
-    icon: '/assets/projects/loginform.png',
+    icon: process.env.PUBLIC_URL + '/assets/projects/loginform.png',  // Pfad anpassen
     link: 'https://github.com/Lavicka13/login_form2', 
   },
 ];
