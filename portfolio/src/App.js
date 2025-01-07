@@ -29,7 +29,7 @@ function App() {
   
 
   return (
-    <div class="glass-effect">
+    <div className="glass-effect">
     <MantineProvider withGlobalStyles withNormalizeCSS>
       <Notifications />
       <HeaderMenu />
