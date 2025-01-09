@@ -106,6 +106,9 @@
   z-index: 1000;
   transition: all 0.3s ease;
   height: 100vh;
+  padding-left: 10%;
+  padding-top: 5%;
+  padding-right: 10%
 }
 
 body.menu-open {
@@ -128,5 +131,7 @@ body.menu-open {
     width: 100%; /* Stellt die Breite des Headers ein */
 
   }
-
+  .burger-icon-white .burger-icon {
+    color: white;
+  }
 }

@@ -171,7 +171,7 @@ export function HeaderMenu() {
           <Group gap={4} visibleFrom="md">
             {desktopItems}
           </Group>
-          <Burger opened={opened} onClick={toggle} size="md" hiddenFrom="md" c="white" />
+          <Burger opened={opened} onClick={toggle} size="md" hiddenFrom="md"  style={{ color: "white" }}/>
         </div>
       </Container>
 
