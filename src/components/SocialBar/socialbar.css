@@ -1,0 +1,31 @@
+.social-bar {
+  position: sticky;
+  top: 40%;
+  left: 0; 
+  height: auto; 
+  width: 50px;
+  display: flex;
+  flex-direction: column; /* Icons vertikal anordnen */
+  align-items: center; /* Zentriert die Icons vertikal */
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7); /* Halbtransparenter Hintergrund */
+  border-radius: 0 8px 8px 0; /* Abgerundete Kante auf der rechten Seite */
+  z-index: 1000;
+}
+
+.social-bar a {
+  margin: 20px 0; /* Vergrößert die Abstände zwischen den Icons */
+  transition: transform 0.3s ease; /* Smoother Übergang bei der Vergrößerung */
+}
+
+/* Vergrößern der Icons auf 1.4x bei Hover */
+.social-bar a:hover {
+  transform: scale(1.4); 
+}
+
+
+@media (max-width: 768px) {
+  .social-bar {
+    display: none;
+  }
+}
