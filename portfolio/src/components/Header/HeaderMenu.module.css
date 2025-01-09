@@ -1,0 +1,102 @@
+.header {
+  position: sticky; 
+  top: 0; 
+  z-index: 10;
+  margin: 0 auto auto; /* Zentriert horizontal und behält den unteren Abstand */
+  background: transparent !important;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex; 
+  justify-content: flex-end;
+  align-items: center; 
+  width: 80%; /* Stellt die Breite des Headers ein */
+}
+
+.inner {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center; 
+  text-decoration: none;
+}
+
+/* Standard-Link-Styling nur innerhalb des Headers */
+.header .link {
+  display: block;
+  line-height: 1;
+  padding: 17px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  font-size: var(--mantine-font-size-xl);
+  font-weight: 500;
+  transition: color 0.9s ease; /* Weicher Übergang der Schriftfarbe */
+}
+
+
+/* Links im Header mit Asterisk für hover */
+.header a {
+  display: inline-block;
+  position: relative;
+  color: #d0e4ee;
+  text-decoration: none;
+}
+
+.header a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  border-radius: 5px;
+  height: 0.05em;
+  bottom: 0;
+  left: 0;
+  background: currentcolor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.header a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.dropdownMenu {
+  background: rgba(255, 255, 255, 0.1); /* Halbtransparenter Hintergrund */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sanfter Schatten */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Transparente Umrandung */
+  transition: all 0.3s ease; /* Weicher Übergang */
+}
+
+.dropdownMenu:hover {
+  background: rgba(255, 255, 255, 0.1); /* Leicht heller bei Hover */
+  backdrop-filter: blur(12px); /* Stärkere Unschärfe */
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Einzelne Links im Dropdown */
+.menuItem {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color:white;
+}
+
+.menuItem:hover {
+  color: rgb(28, 31, 216); /* Hover-Textfarbe */
+}
+
+/* Header Transition */
+.header {
+  transition: color 0.3s ease; /* Weicher Übergang der Schriftfarbe */
+}
