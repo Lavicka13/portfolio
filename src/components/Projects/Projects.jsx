@@ -41,7 +41,7 @@ function Projects() {
     const handleResize = () => setIsMobile(window.innerWidth <= 1366);
     handleResize();
     window.addEventListener('resize', handleResize);
-
+  
     if (!isMobile) {
       tiltRefs.current.forEach((ref) => {
         if (ref && !ref.vanillaTilt) {
@@ -54,11 +54,11 @@ function Projects() {
         }
       });
     }
-
+  
     // Initialisierung von Flickity
     if (flickityRef.current && !flickityRef.current.flickity) {
       new Flickity(flickityRef.current, {
-        cellAlign: 'center',
+        cellAlign: 'center',    // Karten sollen zentriert sein
         contain: true,
         prevNextButtons: true,
         pageDots: false,
@@ -69,10 +69,9 @@ function Projects() {
         friction: 0.6,
       });
     }
-
+  
     return () => window.removeEventListener('resize', handleResize);
   }, [isMobile]);
-
   const renderFlickitySlider = () => {
     return (
       <div className="flickity-slider" ref={flickityRef}>

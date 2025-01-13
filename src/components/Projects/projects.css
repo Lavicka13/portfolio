@@ -82,16 +82,17 @@
   }
 
   .flickity-slider{
-  width: 90%;              /* Die Slider-Breite auf 90% setzen */
+    width: 100%;              /* Die Slider-Breite auf 90% setzen */
   margin: 0 auto;          /* Zentriert den Slider horizontal */
   justify-content: center; /* Zentriert den Sliderinhalt horizontal */
   align-items: center;     /* Zentriert den Inhalt vertikal */
   position: relative;
   }
   .flickity-prev-next-button {
-    width: 20px;        /* Kleinere Breite */
-    height: 20px;       /* Kleinere Höhe */
+    width: 15px;        /* Kleinere Breite */
+    height: 15px;       /* Kleinere Höhe */
     font-size: 18px;    /* Kleinere Schriftgröße (optional, je nach Design) */
+    
     border-radius: 50%; /* Runde Ecken für die Buttons (optional) */
     display: flex;      /* Flexbox für zentrierten Inhalt */
     align-items: center; /* Zentriert den Inhalt vertikal */
