@@ -65,7 +65,7 @@ function Projects() {
       return (
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={30}
+          spaceBetween={20}
           slidesPerView="auto"
           loop
           centeredSlides
@@ -73,8 +73,8 @@ function Projects() {
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           breakpoints={{
-            768: { slidesPerView: 1 },
-            1024: { slidesPerView: 2 },
+            768: { slidesPerView: 1, spaceBetween: 20 },
+            1366: { slidesPerView: 2, spaceBetween: 30 },
           }}
         >
           {projects.map((project, index) => (
