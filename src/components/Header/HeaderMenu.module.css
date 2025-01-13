@@ -62,12 +62,10 @@
 }
 
 .dropdownMenu {
-  background: rgba(255, 255, 255, 0.1); /* Halbtransparenter Hintergrund */
+  background: rgba(255, 255, 255, 0.); /* Halbtransparenter Hintergrund */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sanfter Schatten */
   border: 1px solid rgba(255, 255, 255, 0.18); /* Transparente Umrandung */
   transition: all 0.3s ease; /* Weicher Übergang */
 }
@@ -94,7 +92,7 @@
 
 
 .mobileMenu {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.95);
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -112,9 +110,7 @@
 }
 
 body.menu-open {
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(15px); /* Haupt-Blur-Effekt */
-  -webkit-backdrop-filter: blur(12px); /* Safari-Unterstützung */
+  background-color: rgba(0, 0, 0, 0.95);
 }
 
 @media only screen and (max-width: 1366px) {
@@ -125,8 +121,6 @@ body.menu-open {
     margin: 0 auto auto; /* Zentriert horizontal und behält den unteren Abstand */
     background: transparent !important;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     width: 100%; /* Stellt die Breite des Headers ein */
 
