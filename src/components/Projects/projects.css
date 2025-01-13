@@ -62,8 +62,8 @@
 }
 
 .mobileCard {
-    width: 400px;
-    height: 500px;
+    width: 300px;
+    height: 400px;
     margin: 50px 20px;
     background: rgba(0, 0, 0, 0.1);
     display: flex;
@@ -79,4 +79,26 @@
   }
   #projects {
     scroll-margin-top: -200px; /* Reduziert den Abstand zur oberen Kante */
+  }
+
+  .flickity-slider{
+  width: 90%;              /* Die Slider-Breite auf 90% setzen */
+  margin: 0 auto;          /* Zentriert den Slider horizontal */
+  justify-content: center; /* Zentriert den Sliderinhalt horizontal */
+  align-items: center;     /* Zentriert den Inhalt vertikal */
+  position: relative;
+  }
+  .flickity-prev-next-button {
+    width: 20px;        /* Kleinere Breite */
+    height: 20px;       /* Kleinere Höhe */
+    font-size: 18px;    /* Kleinere Schriftgröße (optional, je nach Design) */
+    border-radius: 50%; /* Runde Ecken für die Buttons (optional) */
+    display: flex;      /* Flexbox für zentrierten Inhalt */
+    align-items: center; /* Zentriert den Inhalt vertikal */
+    justify-content: center; /* Zentriert den Inhalt horizontal */
+  }
+  
+  .flickity-prev-next-button:before {
+    font-size: 18px;    /* Größe des Icons (Pfeil) */
+    color: white;       /* Farbe des Pfeils */
   }

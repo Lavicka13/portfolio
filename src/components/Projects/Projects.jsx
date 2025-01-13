@@ -61,7 +61,7 @@ function Projects() {
         cellAlign: 'center',
         contain: true,
         prevNextButtons: true,
-        pageDots: true,
+        pageDots: false,
         autoPlay: true,
         wrapAround: true,
         groupCells: true,
