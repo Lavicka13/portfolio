@@ -57,17 +57,6 @@
   width: 360px;
 }
 
-.swiper {
-  width: 90%; 
-  margin: 0 auto; 
-}
-
-.swiper-slide {
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-}
-
 .mobileImgBx {
   aspect-ratio: 1 / 1;
 }

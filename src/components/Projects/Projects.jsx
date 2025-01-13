@@ -1,11 +1,8 @@
 import { Grid, Image, Container, Text, Title } from '@mantine/core';
 import React, { useEffect, useRef, useState } from 'react';
 import VanillaTilt from 'vanilla-tilt';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import Flickity from 'flickity'; // Import von Flickity
+import 'flickity/css/flickity.css'; // Import des Flickity CSS
 import './projects.css';
 
 const projects = [
@@ -38,6 +35,7 @@ const projects = [
 function Projects() {
   const [isMobile, setIsMobile] = useState(false);
   const tiltRefs = useRef([]);
+  const flickityRef = useRef(null); // Referenz für Flickity
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 1366);
@@ -57,51 +55,48 @@ function Projects() {
       });
     }
 
+    // Initialisierung von Flickity
+    if (flickityRef.current && !flickityRef.current.flickity) {
+      new Flickity(flickityRef.current, {
+        cellAlign: 'center',
+        contain: true,
+        prevNextButtons: true,
+        pageDots: true,
+        autoPlay: true,
+        wrapAround: true,
+        groupCells: true,
+        selectedAttraction: 0.1, // Visuellen Effekt für das Scrollen
+        friction: 0.6,
+      });
+    }
+
     return () => window.removeEventListener('resize', handleResize);
   }, [isMobile]);
 
-  const renderSwiper = () => {
-    try {
-      return (
-        <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={20}
-          slidesPerView="auto"
-          loop
-          centeredSlides
-          navigation
-          pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
-          breakpoints={{
-            768: { slidesPerView: 1, spaceBetween: 20 },
-            1366: { slidesPerView: 2, spaceBetween: 30 },
-          }}
-        >
-          {projects.map((project, index) => (
-            <SwiperSlide key={index}>
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                <div className="mobileCard">
-                  <div className="mobileImgBx">
-                    <Image src={project.icon} alt={project.title} />
-                  </div>
-                  <div className="mobileContent">
-                    <Text align="center" size="xl" mt="sm">
-                      {project.title}
-                    </Text>
-                    <Text align="center" size="md" c="dimmed" mb="xl">
-                      {project.description}
-                    </Text>
-                  </div>
+  const renderFlickitySlider = () => {
+    return (
+      <div className="flickity-slider" ref={flickityRef}>
+        {projects.map((project, index) => (
+          <div className="cell" key={index}>
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+              <div className="mobileCard">
+                <div className="mobileImgBx">
+                  <Image src={project.icon} alt={project.title} />
                 </div>
-              </a>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      );
-    } catch (error) {
-      console.error("Swiper error:", error);
-      return <div>Failed to load Swiper</div>;
-    }
+                <div className="mobileContent">
+                  <Text align="center" size="xl" mt="sm">
+                    {project.title}
+                  </Text>
+                  <Text align="center" size="md" c="dimmed" mb="xl">
+                    {project.description}
+                  </Text>
+                </div>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+    );
   };
 
   return (
@@ -111,7 +106,7 @@ function Projects() {
           My Projects
         </Title>
         {isMobile ? (
-          renderSwiper()
+          renderFlickitySlider()
         ) : (
           <Grid gutter="xl">
             {projects.map((project, index) => (
