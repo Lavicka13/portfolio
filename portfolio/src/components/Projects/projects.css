@@ -14,6 +14,7 @@ a {
   transform-style: preserve-3d;
   backface-visibility: hidden; /* Fallback */
   height: auto; /* Höhe automatisch anpassen */
+  margin-top: 50px;
 }
  
 .container .card {
@@ -34,7 +35,7 @@ a {
 }
  
 .card:hover {
-  transform: scale(1.02); /* Slight zoom instead of height change */
+  transform: scale(1.04); /* Slight zoom instead of height change */
 }
  
 .container .card .imgBx {

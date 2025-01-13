@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './projects.css';
- 
+
 const projects = [
   {
     title: 'Random Quote Generator',
@@ -34,16 +34,16 @@ const projects = [
     link: 'https://github.com/Lavicka13/login_form2',
   },
 ];
- 
+
 function Projects() {
   const [isMobile, setIsMobile] = useState(false);
   const tiltRefs = useRef([]);
- 
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 1366);
     handleResize();
     window.addEventListener('resize', handleResize);
- 
+
     if (!isMobile) {
       tiltRefs.current.forEach((ref) => {
         if (ref && !ref.vanillaTilt) {
@@ -56,14 +56,14 @@ function Projects() {
         }
       });
     }
- 
+
     return () => window.removeEventListener('resize', handleResize);
   }, [isMobile]);
- 
+
   const renderSwiper = () => {
     try {
       return (
-<Swiper
+        <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={30}
           slidesPerView="auto"
@@ -76,58 +76,76 @@ function Projects() {
             768: { slidesPerView: 1 },
             1024: { slidesPerView: 2 },
           }}
->
+        >
           {projects.map((project, index) => (
-<SwiperSlide key={index}>
-<a href={project.link} target="_blank" rel="noopener noreferrer">
-<div className="mobileCard">
-<div className="mobileImgBx">
-<Image src={project.icon} alt={project.title}  />
-</div>
-<div className="mobileContent">
-<Text align="center" size="xl" mt="sm">{project.title}</Text>
-<Text align="center" size="md" c="dimmed" mb="xl">{project.description}</Text>
-</div>
-</div>
-</a>
-</SwiperSlide>
+            <SwiperSlide key={index}>
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                <div className="mobileCard">
+                  <div className="mobileImgBx">
+                    <Image src={project.icon} alt={project.title} />
+                  </div>
+                  <div className="mobileContent">
+                    <Text align="center" size="xl" mt="sm">
+                      {project.title}
+                    </Text>
+                    <Text align="center" size="md" c="dimmed" mb="xl">
+                      {project.description}
+                    </Text>
+                  </div>
+                </div>
+              </a>
+            </SwiperSlide>
           ))}
-</Swiper>
+        </Swiper>
       );
     } catch (error) {
       console.error("Swiper error:", error);
       return <div>Failed to load Swiper</div>;
     }
   };
- 
+
   return (
-<section id="projects">
-<Container className="container">
-<Title className="title" data-aos="fade-left" c="white">
+    <section id="projects">
+      <Container className="container">
+        <Title className="title" data-aos="fade-left" c="white">
           My Projects
-</Title>
-        {isMobile ? renderSwiper() : (
-<Grid gutter="xl">
+        </Title>
+        {isMobile ? (
+          renderSwiper()
+        ) : (
+          <Grid gutter="xl">
             {projects.map((project, index) => (
-<Grid.Col key={index} span={6}>
-<a href={project.link} target="_blank" rel="noopener noreferrer">
-<div className="card" ref={(el) => (tiltRefs.current[index] = el)}>
-<div className="imgBx">
-<Image src={project.icon} alt={project.title} width={300} height={300} />
-</div>
-<div className="content">
-<Text align="center" size="xl" mt="sm">{project.title}</Text>
-<Text align="center" size="md" c="dimmed" mb="xl">{project.description}</Text>
-</div>
-</div>
-</a>
-</Grid.Col>
+              <Grid.Col key={index} span={6}>
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  <div
+                    className="card"
+                    ref={(el) => (tiltRefs.current[index] = el)}
+                  >
+                    <div className="imgBx">
+                      <Image
+                        src={project.icon}
+                        alt={project.title}
+                        width={300}
+                        height={300}
+                      />
+                    </div>
+                    <div className="content">
+                      <Text align="center" size="xl" mt="sm">
+                        {project.title}
+                      </Text>
+                      <Text align="center" size="md" c="dimmed" mb="xl">
+                        {project.description}
+                      </Text>
+                    </div>
+                  </div>
+                </a>
+              </Grid.Col>
             ))}
-</Grid>
+          </Grid>
         )}
-</Container>
-</section>
+      </Container>
+    </section>
   );
 }
- 
+
 export default Projects;
